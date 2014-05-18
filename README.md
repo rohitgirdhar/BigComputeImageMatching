@@ -1,7 +1,7 @@
 
 Usage
 -----
-1. Set the paths to VLFeat, VLG in `runMatchingCompute.m`
+1. Set the paths to VLFeat in `runMatchingCompute.m`
 2. Set the images folder in `run_jobs.sh` and `submit_jobs.sh`.
 3. Now, to run jobs locally
 ```bash

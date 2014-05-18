@@ -1,6 +1,5 @@
 function runMatchingCompute(img_fpath) % will read the images directory from that
 run('~/vision/vlfeat/toolbox/vl_setup.m')
-run('~/vision/vlg/toolbox/vlg_setup.m')
 
 [pathstr, img_name, ext] = fileparts(img_fpath);
 OUTPUT_DIR = fullfile('results', img_name);
