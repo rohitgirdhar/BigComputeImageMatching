@@ -1,8 +1,8 @@
-function [matches, matching_pts] = computeMatching(I, P)
+function [matches, matching_pts] = computeMatching(I_path, P_path, SIFTS_STOR_DIR)
 
-[f1,d1] = vl_sift(single(rgb2gray(I)));
-[f2,d2] = vl_sift(single(rgb2gray(P)));
-[matches, scores] = vl_ubcmatch(d1, d2);
+[f1,d1] = readSifts(I_path, SIFTS_STOR_DIR);
+[f2,d2] = readSifts(P_path, SIFTS_STOR_DIR);
+[matches, ~] = vl_ubcmatch(d1, d2);
 
 pts1 = zeros(2, size(matches,2));
 pts2 = zeros(2, size(matches,2));
