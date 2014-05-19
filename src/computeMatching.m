@@ -1,4 +1,4 @@
-function [matches, matching_pts] = computeMatching(I_path, P_path, SIFTS_STOR_DIR)
+function [matches] = computeMatching(I_path, P_path, SIFTS_STOR_DIR)
 
 [f1,d1] = readSifts(I_path, SIFTS_STOR_DIR);
 [f2,d2] = readSifts(P_path, SIFTS_STOR_DIR);
@@ -15,5 +15,4 @@ end
 [~, inliers] = estimateFundamentalMatrix(pts1', pts2');
 
 matches = matches(:, inliers);
-matching_pts = [pts1(:, inliers')' pts2(:, inliers')'];
 

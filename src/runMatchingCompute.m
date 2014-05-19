@@ -11,14 +11,11 @@ I_path = img_fpath;
 for qimg = dir(fullfile(IMAGES_DIR, ['*', ext]))'
     [~, qimg_name, ~] = fileparts(qimg.name);
 	P_path = fullfile(IMAGES_DIR, qimg.name);
-	[matches, match_pts] = computeMatching(I_path, P_path, SIFTS_STOR_DIR);
+	matches = computeMatching(I_path, P_path, SIFTS_STOR_DIR);
 
     OUTF = fullfile(OUTPUT_DIR, ['matches_', qimg_name, '.txt']);
     dlmwrite(OUTF, matches');
-
-    OUTF = fullfile(OUTPUT_DIR, ['match_pts_', qimg_name, '.txt']);
-    dlmwrite(OUTF, match_pts);
-
-	disp(sprintf('Done for %s -> %s', img_name, qimg_name));
+    
+	fprintf('Done for %s -> %s', img_name, qimg_name);
 end
 
