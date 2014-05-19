@@ -1,6 +1,4 @@
 function [f1, d1] = readSifts(img_fpath, SIFTS_STOR_DIR)
-f1 = [];
-d1 = [];
 [~, name, ~] = fileparts(img_fpath);
 sift_path = fullfile(SIFTS_STOR_DIR, [name, '_sift.mat']);
 try
