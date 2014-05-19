@@ -9,6 +9,8 @@ try
         fprintf('Successfully read SIFT from MAT files %s\n', name);
     end
 catch
+end
+if (~exist('f1', 'var') || ~exist('d1', 'var'))
     I = imread(img_fpath);
     [f1,d1] = vl_sift(single(rgb2gray(I)));
     save(sift_path, 'f1', 'd1');

@@ -1,8 +1,13 @@
 function [matches] = computeMatching(I_path, P_path, SIFTS_STOR_DIR)
 
+matches = [];
 [f1,d1] = readSifts(I_path, SIFTS_STOR_DIR);
 [f2,d2] = readSifts(P_path, SIFTS_STOR_DIR);
-[matches, ~] = vl_ubcmatch(d1, d2);
+if size(d1,1) ~= size(d2,1)
+    warning('Mismatch in d rows: %s,%s', I_path, P_path);
+else
+    [matches, ~] = vl_ubcmatch(d1, d2);
+end
 
 pts1 = zeros(2, size(matches,2));
 pts2 = zeros(2, size(matches,2));

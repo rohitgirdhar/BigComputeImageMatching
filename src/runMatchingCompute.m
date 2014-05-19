@@ -11,10 +11,15 @@ I_path = img_fpath;
 for qimg = dir(fullfile(IMAGES_DIR, ['*', ext]))'
     [~, qimg_name, ~] = fileparts(qimg.name);
 	P_path = fullfile(IMAGES_DIR, qimg.name);
-	matches = computeMatching(I_path, P_path, SIFTS_STOR_DIR);
+    try
+        matches = computeMatching(I_path, P_path, SIFTS_STOR_DIR);
 
-    OUTF = fullfile(OUTPUT_DIR, ['matches_', qimg_name, '.txt']);
-    dlmwrite(OUTF, matches');
+        OUTF = fullfile(OUTPUT_DIR, ['matches_', qimg_name, '.txt']);
+        dlmwrite(OUTF, matches');
+    catch exception
+        warning('Was not able to compute matches for %s -> %s', img_name, qimg_name);
+        warning(getReport(exception));
+    end
     
 	fprintf('Done for %s -> %s', img_name, qimg_name);
 end
