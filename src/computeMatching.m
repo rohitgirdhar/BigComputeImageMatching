@@ -12,7 +12,7 @@ for i = 1 : size(matches, 2)
 	pts2(:, i) = f2( 1:2,  matches(2, i) );
 end
 if size(pts1,2) > 10
-    [~, inliers] = estimateFundamentalMatrix(pts1', pts2');
+    [~, inliers] = estimateFundamentalMatrix(pts1', pts2', 'Method', 'RANSAC');
     matches = matches(:, inliers);
 else
     matches = [];
