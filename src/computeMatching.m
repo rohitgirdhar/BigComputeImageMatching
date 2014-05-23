@@ -18,4 +18,4 @@ if size(pts1,2) > 10
 else
     matches = [];
 end
-plotMatches(imread(I_path), imread(P_path), f1, f2, matches);
+% plotMatches(imread(I_path), imread(P_path), f1, f2, matches);
