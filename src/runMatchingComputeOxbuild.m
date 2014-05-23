@@ -1,14 +1,11 @@
 function runMatchingComputeOxbuild(img_fpath)
 % code specific to Oxbuild dataset. Use only top N images from the 
 % instance retrieval output
-run('~/vision/vlfeat/toolbox/vl_setup.m')
-SIFTS_STOR_DIR = 'sifts/';
-IR_OUTPUT_DIR = 'closest_matches/';
-N = 200; % num of images to consider to find matching
+config;
 mkdir(SIFTS_STOR_DIR);
 
 [pathstr, img_name, ext] = fileparts(img_fpath);
-OUTPUT_DIR = fullfile('results', img_name);
+OUTPUT_DIR = fullfile(RESULTS_DIR, img_name);
 mkdir(OUTPUT_DIR);
 IMAGES_DIR = pathstr;
 I_path = img_fpath;

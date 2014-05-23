@@ -1,6 +1,11 @@
 #!/bin/bash
-IMGS_FOLDER='../../07_3DAR/work/attempt2/Images_bob/'
+if [ $# -lt 1 ]
+then
+    echo 'usage ./prog <images folder>'
+    exit -1
+fi
+IMGS_FOLDER=$1
 for i in `ls $IMGS_FOLDER`
 do
-	./run.sh ./matlab_batcher.sh runMatchingCompute \'$IMGS_FOLDER\/$i\'
+	./run.sh ./matlab_batcher.sh runMatchingComputeOxbuild \'$IMGS_FOLDER\/$i\'
 done

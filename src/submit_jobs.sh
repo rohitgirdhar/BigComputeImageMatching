@@ -1,5 +1,10 @@
 #!/bin/bash
-IMGS_FOLDER='../../07_3DAR/work/attempt2/Images_bob/'
+IMGS_FOLDER=$1
+if [ $# -lt 1 ]
+then
+    echo 'Usage ./prog <images folder>'
+    exit -1
+fi
 mkdir -p std/out std/err
 for i in `ls $IMGS_FOLDER`
 do
