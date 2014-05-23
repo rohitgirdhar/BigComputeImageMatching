@@ -10,7 +10,7 @@ mkdir(OUTPUT_DIR);
 IMAGES_DIR = pathstr;
 I_path = img_fpath;
 
-file = fopen(fullfile(IR_OUTPUT_DIR, [img_name, '.out']));
+file = fopen(fullfile(IR_OUTPUT_DIR, ['oxc1_', img_name, '.out']));
 imgs_list = textscan(file, '%s', N);
 imgs_list = strcat('oxc1_', imgs_list{1}, '.jpg');
 fclose(file);
