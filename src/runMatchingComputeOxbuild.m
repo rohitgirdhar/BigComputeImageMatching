@@ -12,8 +12,8 @@ I_path = img_fpath;
 
 file = fopen(fullfile(IR_OUTPUT_DIR, ['oxc1_', img_name, '.out']));
 imgs_list = textscan(file, '%s', N);
-imgs_list = strcat('oxc1_', imgs_list{1}, '.jpg');
 fclose(file);
+imgs_list = strcat(imgs_list{1}, '.jpg');
 
 for qimg = imgs_list'
     [~, qimg_name, ~] = fileparts(qimg{:});
